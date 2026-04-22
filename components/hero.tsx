@@ -36,7 +36,7 @@ export function Hero() {
             <span className="text-azure-400">{hero.headlineB}</span>
           </h1>
           <p
-            className="mx-auto max-w-[680px] text-slate-200"
+            className="mx-auto max-w-[680px] text-center text-slate-200 text-balance"
             style={{ fontSize: "var(--fs-lead)", lineHeight: 1.5 }}
           >
             {hero.sub}

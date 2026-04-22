@@ -24,21 +24,21 @@ export function Nav() {
       className={[
         "fixed top-0 inset-x-0 z-50 border-b transition-all duration-200 ease-[cubic-bezier(0.2,0,0,1)]",
         scrolled
-          ? "py-2.5 bg-[rgba(15,23,42,0.72)] backdrop-blur-[16px] border-white/[0.06]"
-          : "py-3.5 border-transparent",
+          ? "py-3 bg-[rgba(15,23,42,0.72)] backdrop-blur-[16px] border-white/[0.06]"
+          : "py-4 border-transparent",
       ].join(" ")}
     >
       <Container className="flex items-center justify-between gap-6">
         <a href="#top" className="flex items-center cursor-pointer text-white">
-          <Logo height={22} />
+          <Logo height={27} />
         </a>
 
-        <div className="hidden lg:flex items-center gap-7 ml-auto mr-5">
+        <div className="hidden lg:flex items-center gap-8 ml-auto mr-6">
           {site.navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[14px] font-medium text-slate-200 hover:text-white transition-colors"
+              className="text-[17px] font-medium text-slate-200 hover:text-white transition-colors"
             >
               {l.label}
             </a>

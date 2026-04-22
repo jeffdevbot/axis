@@ -1,14 +1,17 @@
+const LOGO_ASPECT = 512.67 / 138.4;
+
 export function Logo({ className = "", height = 22 }: { className?: string; height?: number }) {
+  const width = Math.round(height * LOGO_ASPECT);
   return (
     <svg
       viewBox="0 0 512.67 138.4"
       height={height}
-      width="auto"
+      width={width}
       fill="currentColor"
       aria-label="Axis Brands"
       role="img"
       className={className}
-      style={{ display: "block" }}
+      style={{ display: "block", flexShrink: 0 }}
     >
       <g>
         <polygon points="67.96 60.49 35.48 28.01 46.53 16.97 67.96 38.4 89.12 17.25 105.22 1.15 116.26 12.19 100.16 28.29 67.96 60.49" />

@@ -20,7 +20,7 @@ export function ClientLogo({ slug, name }: { slug: string; name: string }) {
               s.removeAttribute("class");
             });
           svg.querySelector("defs")?.remove();
-          svg.setAttribute("style", "max-height: 36px; max-width: 100%; width: auto; height: auto;");
+          svg.setAttribute("style", "max-height: 47px; max-width: 100%; width: auto; height: auto;");
         }
       } catch {
         /* ignore */
@@ -36,7 +36,7 @@ export function ClientLogo({ slug, name }: { slug: string; name: string }) {
       ref={ref}
       aria-label={name}
       title={name}
-      className="flex items-center justify-center h-12 text-slate-400 transition-colors duration-200 hover:text-ink-800"
+      className="flex items-center justify-center h-16 text-slate-400 transition-colors duration-200 hover:text-ink-800"
     />
   );
 }

@@ -23,7 +23,7 @@ export function FinalCTA() {
       <Container className="relative z-10">
         <div className="max-w-[760px] mx-auto">
           <h2
-            className="text-white mb-5"
+            className="text-white text-center text-balance mb-5"
             style={{
               fontSize: "var(--fs-h1)",
               lineHeight: 1.2,
@@ -34,7 +34,7 @@ export function FinalCTA() {
             {finalCTA.heading}
           </h2>
           <p
-            className="text-slate-200 mx-auto max-w-[640px] mb-8"
+            className="text-slate-200 text-center text-balance mx-auto max-w-[640px] mb-8"
             style={{ fontSize: "var(--fs-lead)", lineHeight: 1.5 }}
           >
             {finalCTA.sub}
