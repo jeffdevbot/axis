@@ -20,7 +20,14 @@ const jbMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Axis Brands Group — Your Amazon Partner. Not Your Amazon Agency.",
   description:
     "Axis Brands is run by operators and investors in consumer product companies. We manage Amazon and Walmart with your P&L in mind — flat monthly fee, no percentage of ad spend, no lock-in contracts.",
