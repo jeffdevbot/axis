@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Axis Brands Group — Core Tokens
+   Colors + Type
+   ==========================================================================
+   Positioning: Your Amazon Partner. Not Your Amazon Agency.
+   Mood: Premium growth-equity / private-equity firm. Linear meets Stripe.
+   ========================================================================== */
+
+/* --- Webfonts ------------------------------------------------------------- */
+/* Body + UI: Inter. Display: Plus Jakarta Sans. Both loaded from Google Fonts
+   so production (Vercel) stays zero-config. Self-host if perf budget calls.   */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---------------------------------------------------------------------
+     COLOR — CORE PALETTE
+     The site is anchored in deep navy with an electric-blue accent.
+     Use `ink` (navy) as the primary dark background / body text on light.
+     Use `azure` sparingly — it's the conversion color.
+     --------------------------------------------------------------------- */
+
+  /* Ink — primary dark (navy / near-black). Hero, nav, footer, headlines. */
+  --ink-900: #0B1220;   /* deepest: final CTA band, print-black alternative */
+  --ink-800: #0F172A;   /* PRIMARY. hero + nav + footer background          */
+  --ink-700: #1E293B;   /* dark card surface on navy sections              */
+  --ink-600: #334155;   /* borders + dividers on dark                      */
+
+  /* Slate — secondary / supporting text */
+  --slate-500: #475569; /* PRIMARY body text on light surfaces             */
+  --slate-400: #64748B; /* muted label, caption, meta                      */
+  --slate-300: #94A3B8; /* disabled text, tertiary                         */
+  --slate-200: #CBD5E1; /* hairline border on light                        */
+  --slate-100: #E2E8F0; /* card border                                     */
+
+  /* Surface — light backgrounds */
+  --surface-50:  #F8FAFC; /* softer alt section                            */
+  --surface-100: #F1F5F9; /* PRIMARY alt section background                */
+  --white:       #FFFFFF;
+
+  /* Azure — electric-blue accent. CTA + highlight only.
+     Do NOT use for large background areas — hero stays navy.               */
+  --azure-700: #1E40AF;  /* pressed / active                                */
+  --azure-600: #1D4ED8;  /* PRIMARY accent — CTA, link, hover               */
+  --azure-500: #2563EB;  /* hover on filled CTA                             */
+  --azure-400: #3B82F6;  /* focus ring, highlight                           */
+  --azure-100: #DBEAFE;  /* tinted backgrounds (rare, callouts only)        */
+
+  /* Semantic — data & performance metrics
+     Axis sells on numbers. These render KPI deltas in stats + results.     */
+  --gain-500:   #10B981; /* +% gains (sales growth, positive delta)         */
+  --gain-100:   #D1FAE5;
+  --drop-500:   #0EA5E9; /* planned drops (−TACoS, −ad spend) — blue-cyan   */
+  --drop-100:   #E0F2FE; /* (a drop in cost is GOOD — keep family on-brand) */
+  --warn-500:   #F59E0B;
+  --danger-500: #EF4444;
+
+  /* --- Semantic aliases ------------------------------------------------- */
+  --fg:          var(--ink-800);        /* body text on light               */
+  --fg-muted:    var(--slate-500);
+  --fg-subtle:   var(--slate-400);
+  --fg-on-dark:  var(--white);
+  --fg-on-dark-muted: #CBD5E1;          /* slate-200 on dark                */
+
+  --bg:          var(--white);
+  --bg-alt:      var(--surface-100);
+  --bg-dark:     var(--ink-800);
+  --bg-darker:   var(--ink-900);
+
+  --border:          var(--slate-100);
+  --border-strong:   var(--slate-200);
+  --border-on-dark:  rgba(255,255,255,0.08);
+
+  --accent:       var(--azure-600);
+  --accent-hover: var(--azure-500);
+  --accent-press: var(--azure-700);
+
+
+  /* ---------------------------------------------------------------------
+     TYPE — SCALE + FAMILIES
+     Display: Plus Jakarta Sans (700/800) — slightly more editorial than Inter
+     Body + UI: Inter (400/500/600)
+     Mono: JetBrains Mono — KPI numerals, stat counters, calculator
+     --------------------------------------------------------------------- */
+  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans:    'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Fluid scale, tuned for marketing pages.
+     Min ≈ 375px viewport, Max ≈ 1440px viewport.                            */
+  --fs-display:    clamp(3.25rem, 2.4rem + 3.6vw, 5.5rem);   /*  52 → 88 */
+  --fs-h1:         clamp(2.5rem,  1.9rem + 2.6vw, 4rem);     /*  40 → 64 */
+  --fs-h2:         clamp(2rem,    1.6rem + 1.8vw, 3rem);     /*  32 → 48 */
+  --fs-h3:         clamp(1.5rem,  1.25rem + 1.1vw, 2rem);    /*  24 → 32 */
+  --fs-h4:         clamp(1.25rem, 1.1rem + 0.6vw,  1.5rem);  /*  20 → 24 */
+  --fs-lead:       clamp(1.125rem, 1rem + 0.5vw,  1.375rem); /*  18 → 22 */
+  --fs-body:       1.0625rem;        /* 17px                               */
+  --fs-small:      0.9375rem;        /* 15px                               */
+  --fs-caption:    0.8125rem;        /* 13px                               */
+  --fs-eyebrow:    0.75rem;          /* 12px — uppercase tracked label     */
+  --fs-stat:       clamp(2.75rem, 2rem + 3vw, 4.5rem);        /* 44 → 72   */
+
+  --lh-tight:  1.05;  /* display                                            */
+  --lh-snug:   1.2;   /* headings                                           */
+  --lh-normal: 1.45;  /* leads                                              */
+  --lh-body:   1.6;   /* body — per brief                                   */
+  --lh-relaxed:1.75;
+
+  --tracking-tight:    -0.02em;   /* display + h1                           */
+  --tracking-snug:     -0.01em;   /* h2/h3                                  */
+  --tracking-normal:   0;
+  --tracking-wide:     0.02em;
+  --tracking-eyebrow:  0.14em;    /* UPPERCASE LABELS                       */
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-black:    800;
+
+
+  /* ---------------------------------------------------------------------
+     SPACING — 4px base scale
+     --------------------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;   /*  4 */
+  --space-2: 0.5rem;    /*  8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.25rem;   /* 20 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+  --space-24: 6rem;     /* 96 */
+  --space-32: 8rem;     /* 128 */
+
+  /* Section rhythm — marketing pages breathe. */
+  --section-y:       clamp(4rem, 3rem + 4vw, 7rem);   /* 64 → 112 */
+  --container-max:   1200px;
+  --container-px:    clamp(1.25rem, 0.5rem + 2vw, 2rem);
+
+
+  /* ---------------------------------------------------------------------
+     RADII — restrained. Not pill-shaped. Premium, not playful.
+     --------------------------------------------------------------------- */
+  --radius-sm:  4px;
+  --radius-md:  8px;      /* buttons, inputs                                */
+  --radius-lg:  12px;     /* cards                                          */
+  --radius-xl:  16px;     /* feature cards                                  */
+  --radius-2xl: 24px;     /* hero media, large containers                   */
+  --radius-full: 9999px;  /* avatars + pills only                           */
+
+
+  /* ---------------------------------------------------------------------
+     SHADOWS — low, subtle. Dark-navy brand => avoid fuzzy drop shadows.
+     --------------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.12), 0 8px 16px rgba(15, 23, 42, 0.06);
+  --shadow-accent: 0 8px 24px rgba(29, 78, 216, 0.24);   /* under CTAs      */
+  --shadow-inset:  inset 0 1px 0 rgba(255, 255, 255, 0.06);  /* on dark cards */
+
+
+  /* ---------------------------------------------------------------------
+     MOTION — short, linear-feel easing. No bounces.
+     --------------------------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.15);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:  120ms;
+  --dur-base:  200ms;
+  --dur-slow:  320ms;
+}
+
+
+/* ==========================================================================
+   SEMANTIC TYPE — base elements
+   Use by applying `.prose` to a content block, or rely on element defaults.
+   ========================================================================== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  font-family: var(--font-display);
+  color: var(--ink-800);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h1, .h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+h2, .h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-snug);
+}
+
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-snug);
+}
+
+h4, .h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-normal);
+  color: var(--fg-muted);
+  text-wrap: pretty;
+}
+
+p, .p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-muted);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+small, .small {
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
+  color: var(--fg-subtle);
+}
+
+.caption {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-normal);
+  color: var(--fg-subtle);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--azure-600);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: var(--fs-stat);
+  font-weight: var(--fw-black);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-800);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+a:hover { color: var(--accent-hover); }
+
+/* --- On-dark variants ----------------------------------------------------- */
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4,
+.on-dark .h1, .on-dark .h2, .on-dark .h3, .on-dark .h4,
+.on-dark .display, .on-dark .stat-number { color: var(--fg-on-dark); }
+.on-dark p, .on-dark .p, .on-dark .lead { color: var(--fg-on-dark-muted); }
+.on-dark small, .on-dark .caption { color: var(--slate-300); }
+.on-dark .eyebrow { color: var(--azure-400); }
