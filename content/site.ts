@@ -140,7 +140,15 @@ export const finalCTA = {
   cta: "Book a 15-Minute Call",
 };
 
-export const footer = {
+type FooterIcon = "linkedin";
+
+type FooterLink = { label: string; href: string; icon?: FooterIcon };
+
+export const footer: {
+  tag: string;
+  columns: { label: string; links: FooterLink[] }[];
+  legal: string;
+} = {
   tag: "Your Amazon Partner. Not Your Amazon Agency.",
   columns: [
     {

@@ -36,11 +36,12 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = "100%";
 
-    setTimeout(() => {
+    const focusTimer = window.setTimeout(() => {
       panelRef.current?.querySelector<HTMLElement>("button, [href]")?.focus();
     }, 50);
 
     return () => {
+      window.clearTimeout(focusTimer);
       document.removeEventListener("keydown", onKey);
       const top = document.body.style.top;
       document.body.style.position = "";
@@ -58,8 +59,7 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
       role="dialog"
       aria-modal="true"
       aria-labelledby="booking-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-ink-800/72 backdrop-blur-sm"
-      style={{ animation: "fadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1)" }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-ink-800/72 backdrop-blur-sm axis-fade-in"
       onClick={onClose}
     >
       <div
@@ -110,7 +110,6 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
           />
         )}
       </div>
-      <style>{`@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
     </div>
   );
 }

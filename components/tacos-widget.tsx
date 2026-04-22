@@ -1,11 +1,15 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Container } from "./container";
 import { LinkButton } from "./button";
+import { Glow } from "./glow";
+import { NumberField } from "./number-field";
 import {
   calcTacos,
   roundTo,
+  verdictBarClass,
+  verdictColor,
   verdictExplanation,
   verdictFor,
   verdictLabel,
@@ -17,36 +21,16 @@ export function TacosWidget() {
   const [conversionRate, setConversionRate] = useState(5);
   const [cpc, setCpc] = useState(0.75);
 
-  const { tacos, verdict, progress } = useMemo(() => {
-    const raw = calcTacos({ price, conversionRate, cpc });
-    const t = roundTo(raw, 2);
-    return {
-      tacos: t,
-      verdict: verdictFor(t),
-      progress: Math.min(Math.max(t, 0), 100),
-    };
-  }, [price, conversionRate, cpc]);
-
-  const bar =
-    verdict === "excellent"
-      ? "bg-[#34D399]"
-      : verdict === "moderate"
-        ? "bg-[#FBBF24]"
-        : "bg-[#F87171]";
+  const tacos = roundTo(calcTacos({ price, conversionRate, cpc }), 2);
+  const verdict = verdictFor(tacos);
+  const progress = Math.min(Math.max(tacos, 0), 100);
 
   return (
     <section
       className="relative bg-ink-800 overflow-hidden"
       style={{ paddingBlock: "var(--section-y)" }}
     >
-      <div
-        aria-hidden
-        className="absolute -bottom-[30%] -left-[20%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(29, 78, 216, 0.20), rgba(29, 78, 216, 0) 70%)",
-        }}
-      />
+      <Glow position="bottom-left" size="60vw" maxSize={700} alpha={0.2} />
       <Container className="relative z-10 on-dark">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -75,7 +59,8 @@ export function TacosWidget() {
           </div>
 
           <div className="rounded-[var(--radius-xl)] bg-ink-700 border border-white/[0.08] p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_12px_32px_rgba(15,23,42,0.08)]">
-            <Field
+            <NumberField
+              tone="dark"
               label="Selling price"
               prefix="$"
               value={price}
@@ -83,7 +68,8 @@ export function TacosWidget() {
               onChange={setPrice}
               min={0}
             />
-            <Field
+            <NumberField
+              tone="dark"
               label="Conversion rate (%)"
               value={conversionRate}
               step={0.1}
@@ -91,7 +77,8 @@ export function TacosWidget() {
               min={0}
               max={100}
             />
-            <Field
+            <NumberField
+              tone="dark"
               label="Cost per click"
               prefix="$"
               value={cpc}
@@ -110,19 +97,14 @@ export function TacosWidget() {
                   fontSize: "48px",
                   lineHeight: 1,
                   letterSpacing: "-0.02em",
-                  color:
-                    verdict === "excellent"
-                      ? "#34D399"
-                      : verdict === "moderate"
-                        ? "#FBBF24"
-                        : "#F87171",
+                  color: verdictColor(verdict),
                 }}
               >
                 {tacos.toFixed(1)}%
               </div>
               <div className="mt-3 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
                 <div
-                  className={`h-full ${bar} transition-all duration-300`}
+                  className={`h-full ${verdictBarClass(verdict)} transition-all duration-300`}
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -137,45 +119,5 @@ export function TacosWidget() {
         </div>
       </Container>
     </section>
-  );
-}
-
-function Field({
-  label,
-  value,
-  onChange,
-  step,
-  min,
-  max,
-  prefix,
-}: {
-  label: string;
-  value: number;
-  onChange: (v: number) => void;
-  step: number;
-  min?: number;
-  max?: number;
-  prefix?: string;
-}) {
-  return (
-    <div className="mb-4">
-      <label className="block text-[12px] font-semibold text-slate-200 mb-1.5">
-        {label}
-      </label>
-      <div className="flex items-center bg-ink-900 border border-white/10 rounded-md px-3.5 focus-within:border-azure-400 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.18)] transition-all">
-        {prefix ? (
-          <span className="mono text-[14px] text-slate-300">{prefix}</span>
-        ) : null}
-        <input
-          type="number"
-          step={step}
-          min={min}
-          max={max}
-          value={value}
-          onChange={(e) => onChange(+e.target.value || 0)}
-          className="flex-1 bg-transparent border-0 outline-none text-white mono text-[15px] py-3 px-1.5 tabular-nums"
-        />
-      </div>
-    </div>
   );
 }

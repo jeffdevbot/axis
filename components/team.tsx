@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "./container";
+import { SectionHeader } from "./section-header";
 import { team } from "@/content/site";
 
 export function Team() {
@@ -10,26 +11,11 @@ export function Team() {
       style={{ paddingBlock: "var(--section-y)" }}
     >
       <Container>
-        <header className="text-center max-w-[720px] mx-auto mb-14 md:mb-20">
-          <span className="eyebrow block mb-4">{team.eyebrow}</span>
-          <h2
-            className="mb-4"
-            style={{
-              fontSize: "var(--fs-h2)",
-              lineHeight: 1.2,
-              letterSpacing: "-0.01em",
-              fontWeight: 700,
-            }}
-          >
-            {team.heading}
-          </h2>
-          <p
-            className="text-slate-500 mx-auto"
-            style={{ fontSize: "var(--fs-lead)", lineHeight: 1.45 }}
-          >
-            {team.lead}
-          </p>
-        </header>
+        <SectionHeader
+          eyebrow={team.eyebrow}
+          heading={team.heading}
+          lead={team.lead}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {team.members.map((m) => (

@@ -2,6 +2,7 @@
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Container } from "./container";
 import { Button } from "./button";
+import { Glow } from "./glow";
 import { useBooking } from "./booking-provider";
 import { hero } from "@/content/site";
 
@@ -12,14 +13,7 @@ export function Hero() {
       id="top"
       className="relative bg-ink-800 overflow-hidden pt-40 pb-28 md:pt-48 md:pb-32"
     >
-      <div
-        aria-hidden
-        className="absolute top-[-20%] right-[-10%] w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(29, 78, 216, 0.22), rgba(29, 78, 216, 0) 70%)",
-        }}
-      />
+      <Glow position="top-right" alpha={0.22} />
       <Container className="relative z-10 on-dark text-center">
         <div className="mx-auto max-w-[920px]">
           <span className="eyebrow mb-6 text-azure-400">{hero.eyebrow}</span>
