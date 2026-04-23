@@ -22,7 +22,7 @@ export const stats = [
   { n: "20", suffix: "+", label: "Brands Managed" },
   { n: "+40%", label: "Avg. Sales Growth" },
   { n: "−12%", label: "Avg. Ad Spend" },
-  { n: "−33%", label: "Avg. TACoS" },
+  { n: "−33%", label: "Avg. TACoS Reduction" },
 ];
 
 export const statsFootnote = "Average client results after the first 3 months.";
@@ -58,9 +58,9 @@ export const clients = {
 };
 
 export const services = {
-  eyebrow: "What We Do",
-  heading: "A focused number of brands at a time.",
-  lead: "Quality over volume — always.",
+  eyebrow: "Services",
+  heading: "What We Do",
+  lead: "We work with a focused number of brands at a time. Quality over volume — always.",
   items: [
     {
       heading: "Amazon & Walmart Management",
@@ -110,19 +110,19 @@ export const team = {
       name: "Adam Levinter",
       title: "Co-Founder, Axis Brands Group",
       photo: "/assets/team/adam-levinter.jpg",
-      bio: "Adam is an operator and investor in consumer product companies, focused on accelerating growth across Amazon, Walmart, and global markets. He is the author of The Subscription Boom — featured in The New York Times, Washington Post, Forbes, and Axios — and the host of two podcasts at the intersection of ecommerce and entrepreneurship.",
+      bio: "Adam is an operator and investor in consumer product companies, focused on accelerating growth across Amazon, Walmart, and global markets. He is the author of The Subscription Boom — featured in The New York Times, Washington Post, Forbes, and Axios — and the host of two podcasts at the intersection of ecommerce and entrepreneurship. Over the past decade he has built companies, advised Fortune 500 executives, and worked with some of the world's leading consumer brands.",
     },
     {
       name: "Anshuman Chhabra",
       title: "Amazon Operations Lead",
       photo: "/assets/team/anshuman-chhabra.jpg",
-      bio: "A seasoned ecommerce operator with over a decade of experience scaling brands on Amazon and beyond. Anshuman began his career as a Vendor Manager at Amazon, where he developed deep expertise in marketplace dynamics, product launch strategy, and advertising optimization.",
+      bio: "A seasoned ecommerce operator with over a decade of experience scaling brands on Amazon and beyond. Anshuman began his career as a Vendor Manager at Amazon, where he developed deep expertise in marketplace dynamics, product launch strategy, and advertising optimization. His subsequent roles at Live Out There, Sport Chek, and Best Buy Canada sharpened his skills across product, marketing, and digital retail — giving him a rare combination of platform knowledge and brand-side experience.",
     },
     {
       name: "Jeffrey Talajic",
       title: "Brand Growth Lead",
       photo: "/assets/team/jeffrey-talajic.jpg",
-      bio: "Jeff is an ecommerce specialist with a proven track record of scaling consumer brands to over $10 million in annual sales. He combines deep Amazon and marketplace expertise with a hands-on, results-driven approach.",
+      bio: "Jeff is an ecommerce specialist with a proven track record of scaling consumer brands to over $10 million in annual sales. He combines deep Amazon and marketplace expertise with a hands-on, results-driven approach — drawing on prior roles in direct-to-consumer startups where he led performance marketing, channel strategy, and growth operations.",
     },
   ],
 };
