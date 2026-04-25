@@ -86,29 +86,12 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
             15 minutes, no slides — we'll share an honest read on your Amazon performance.
           </p>
         </div>
-        {site.calendlyUrl.includes("placeholder") ? (
-          <div className="px-8 pb-8">
-            <div className="rounded-md border border-slate-200 bg-surface-100 p-6 text-center">
-              <p className="text-sm text-slate-500 mb-3">
-                Calendly embed placeholder — set{" "}
-                <code className="mono text-ink-800">NEXT_PUBLIC_CALENDLY_URL</code> to wire the real booking link.
-              </p>
-              <a
-                href={`mailto:${site.email}`}
-                className="text-sm font-semibold text-azure-600 hover:text-azure-500"
-              >
-                Or email {site.email} →
-              </a>
-            </div>
-          </div>
-        ) : (
-          <iframe
-            src={site.calendlyUrl}
-            title="Book a 15-minute call"
-            className="w-full border-0"
-            style={{ height: "620px" }}
-          />
-        )}
+        <iframe
+          src={site.calendlyUrl}
+          title="Book a 15-minute call"
+          className="w-full border-0"
+          style={{ height: "620px" }}
+        />
       </div>
     </div>
   );

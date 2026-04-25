@@ -1,7 +1,5 @@
 export const site = {
-  calendlyUrl:
-    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/axis-brands-placeholder",
-  email: "hello@axisbrandsgroup.com",
+  calendlyUrl: "https://calendly.com/adam-axisbrandsgroup",
   navLinks: [
     { label: "How We Work", href: "#why-axis" },
     { label: "Results", href: "#stats" },
@@ -54,6 +52,7 @@ export const clients = {
     { slug: "hairclub", name: "HairClub" },
     { slug: "sleep-country", name: "Sleep Country" },
     { slug: "endy", name: "Endy" },
+    { slug: "hairmax", name: "Hairmax" },
   ],
 };
 
@@ -114,13 +113,13 @@ export const team = {
     },
     {
       name: "Anshuman Chhabra",
-      title: "Amazon Operations Lead",
+      title: "Co-Founder · Amazon Operations Lead",
       photo: "/assets/team/anshuman-chhabra.jpg",
       bio: "A seasoned ecommerce operator with over a decade of experience scaling brands on Amazon and beyond. Anshuman began his career as a Vendor Manager at Amazon, where he developed deep expertise in marketplace dynamics, product launch strategy, and advertising optimization. His subsequent roles at Live Out There, Sport Chek, and Best Buy Canada sharpened his skills across product, marketing, and digital retail — giving him a rare combination of platform knowledge and brand-side experience.",
     },
     {
       name: "Jeffrey Talajic",
-      title: "Brand Growth Lead",
+      title: "Co-Founder · Brand Growth Lead",
       photo: "/assets/team/jeffrey-talajic.jpg",
       bio: "Jeff is an ecommerce specialist with a proven track record of scaling consumer brands to over $10 million in annual sales. He combines deep Amazon and marketplace expertise with a hands-on, results-driven approach — drawing on prior roles in direct-to-consumer startups where he led performance marketing, channel strategy, and growth operations.",
     },
@@ -162,8 +161,7 @@ export const footer: {
     {
       label: "Contact",
       links: [
-        { label: "hello@axisbrandsgroup.com", href: "mailto:hello@axisbrandsgroup.com" },
-        { label: "LinkedIn", href: "https://www.linkedin.com/company/axis-brands-group", icon: "linkedin" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/adam-j-levinter-sbase/", icon: "linkedin" },
       ],
     },
   ],

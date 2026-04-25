@@ -29,7 +29,7 @@ export function Team() {
                   alt={m.name}
                   fill
                   sizes="(max-width: 760px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                   style={{ filter: "saturate(0.95)" }}
                 />
               </div>
