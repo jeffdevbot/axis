@@ -11,10 +11,32 @@ import { Team } from "@/components/team";
 import { FinalCTA } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/reveal";
+import { SITE_URL } from "@/lib/site-url";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Axis Brands Group",
+  url: SITE_URL,
+  logo: `${SITE_URL}/axis-logo-navy.svg`,
+  description:
+    "Operator-led Amazon and Walmart growth partner. Flat monthly fee, no percentage of ad spend, no lock-in contracts.",
+  founder: [
+    { "@type": "Person", name: "Adam Levinter" },
+    { "@type": "Person", name: "Anshuman Chhabra" },
+    { "@type": "Person", name: "Jeffrey Talajic" },
+  ],
+  areaServed: "Worldwide",
+  knowsAbout: ["Amazon marketplace", "Walmart marketplace", "Ecommerce growth", "Advertising optimization"],
+};
 
 export default function Home() {
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <Nav />
       <main>
         <Hero />

@@ -50,7 +50,7 @@ export function Nav() {
 
         <div className="hidden lg:block">
           <Button variant="primary" onClick={open}>
-            Book a 15-Minute Call
+            Book a Call
           </Button>
         </div>
 
@@ -84,7 +84,7 @@ export function Nav() {
                 open();
               }}
             >
-              Book a 15-Minute Call
+              Book a Call
             </Button>
           </Container>
         </div>

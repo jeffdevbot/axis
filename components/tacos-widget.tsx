@@ -52,7 +52,7 @@ export function TacosWidget() {
             >
               {copy.body}
             </p>
-            <LinkButton variant="primary" href="/tools/tacos-calculator">
+            <LinkButton variant="primary" href="/tacos-calculator">
               {copy.cta}
               <ArrowRight size={16} aria-hidden />
             </LinkButton>

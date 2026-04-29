@@ -12,7 +12,7 @@ export const hero = {
   headlineA: "Your Amazon Partner.",
   headlineB: "Not Your Amazon Agency.",
   sub: "Axis Brands is run by operators and investors in consumer product companies. We manage Amazon and Walmart with your P&L in mind — flat monthly fee, no percentage of ad spend, no lock-in contracts.",
-  primaryCTA: "Book a 15-Minute Call",
+  primaryCTA: "Book a Call",
   secondaryCTA: "See Our Results",
 };
 
@@ -52,7 +52,7 @@ export const clients = {
     { slug: "hairclub", name: "HairClub" },
     { slug: "sleep-country", name: "Sleep Country" },
     { slug: "endy", name: "Endy" },
-    { slug: "hairmax", name: "Hairmax" },
+    { slug: "world-famous", name: "World Famous", colored: true },
   ],
 };
 
@@ -135,8 +135,8 @@ export const tacos = {
 
 export const finalCTA = {
   heading: "Is Axis the Right Fit for Your Brand?",
-  sub: "Most brands we work with already know their Amazon performance could be better. We'll tell you honestly in 15 minutes whether we can move the needle — and what that would look like.",
-  cta: "Book a 15-Minute Call",
+  sub: "Most brands we work with already know their Amazon performance could be better. We'll tell you honestly on a quick call whether we can move the needle — and what that would look like.",
+  cta: "Book a Call",
 };
 
 type FooterIcon = "linkedin";

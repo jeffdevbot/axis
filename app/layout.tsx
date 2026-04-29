@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,12 +22,6 @@ const jbMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000");
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Axis Brands Group — Your Amazon Partner. Not Your Amazon Agency.",
@@ -36,10 +31,18 @@ export const metadata: Metadata = {
     icon: "/axis-logo-blue.svg",
   },
   openGraph: {
-    title: "Axis Brands Group",
+    title: "Axis Brands Group — Your Amazon Partner. Not Your Amazon Agency.",
     description:
       "Operator-led Amazon & Walmart growth partner. Flat fee, no percentage of ad spend, no lock-in contracts.",
     type: "website",
+    url: "/",
+    siteName: "Axis Brands Group",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Axis Brands Group — Your Amazon Partner. Not Your Amazon Agency.",
+    description:
+      "Operator-led Amazon & Walmart growth partner. Flat fee, no percentage of ad spend, no lock-in contracts.",
   },
 };
 

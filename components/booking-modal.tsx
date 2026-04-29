@@ -75,7 +75,7 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
           <X size={20} aria-hidden />
         </button>
         <div className="px-8 pt-8 pb-2">
-          <span className="eyebrow">15-Minute Call</span>
+          <span className="eyebrow">Book a Call</span>
           <h3
             id="booking-title"
             className="font-[family-name:var(--font-display)] text-2xl font-bold mt-2 mb-2 text-ink-800"
@@ -83,12 +83,12 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
             Pick a time that works.
           </h3>
           <p className="text-slate-500 text-[15px] leading-relaxed mb-4">
-            15 minutes, no slides — we'll share an honest read on your Amazon performance.
+            Let&apos;s discuss your opportunity on Amazon.
           </p>
         </div>
         <iframe
           src={site.calendlyUrl}
-          title="Book a 15-minute call"
+          title="Book a call"
           className="w-full border-0"
           style={{ height: "620px" }}
         />
