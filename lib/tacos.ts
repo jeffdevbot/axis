@@ -65,3 +65,33 @@ export function roundTo(value: number, decimals = 2): number {
   const factor = 10 ** decimals;
   return Math.round(value * factor) / factor;
 }
+
+const VERDICT_FG: Record<Verdict, string> = {
+  excellent: "#34D399",
+  moderate: "#FBBF24",
+  high: "#F87171",
+};
+
+const VERDICT_BAR: Record<Verdict, string> = {
+  excellent: "bg-[#34D399]",
+  moderate: "bg-[#FBBF24]",
+  high: "bg-[#F87171]",
+};
+
+const VERDICT_TEXT: Record<Verdict, string> = {
+  excellent: "text-[#34D399]",
+  moderate: "text-[#FBBF24]",
+  high: "text-[#F87171]",
+};
+
+export function verdictColor(v: Verdict): string {
+  return VERDICT_FG[v];
+}
+
+export function verdictBarClass(v: Verdict): string {
+  return VERDICT_BAR[v];
+}
+
+export function verdictTextClass(v: Verdict): string {
+  return VERDICT_TEXT[v];
+}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Quote } from "lucide-react";
 import { Container } from "./container";
+import { SectionHeader } from "./section-header";
 import { testimonials } from "@/content/site";
 
 export function Testimonials() {
@@ -10,19 +11,7 @@ export function Testimonials() {
       style={{ paddingBlock: "var(--section-y)" }}
     >
       <Container>
-        <header className="text-center max-w-[720px] mx-auto mb-14 md:mb-20">
-          <span className="eyebrow block mb-4">Proof</span>
-          <h2
-            style={{
-              fontSize: "var(--fs-h2)",
-              lineHeight: 1.2,
-              letterSpacing: "-0.01em",
-              fontWeight: 700,
-            }}
-          >
-            What Our Clients Say
-          </h2>
-        </header>
+        <SectionHeader eyebrow="Proof" heading="What Our Clients Say" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonials.map((t) => (

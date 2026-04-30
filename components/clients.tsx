@@ -6,12 +6,12 @@ export function Clients() {
   return (
     <section className="py-16 bg-white border-y border-slate-100">
       <Container>
-        <div className="text-center mono text-[11px] uppercase tracking-[0.08em] text-slate-400 mb-6">
+        <div className="text-center mono text-[14px] uppercase tracking-[0.08em] text-slate-400 mb-8">
           {clients.label}
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-10 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 md:gap-12 items-center">
           {clients.logos.map((c) => (
-            <ClientLogo key={c.slug} slug={c.slug} name={c.name} />
+            <ClientLogo key={c.slug} slug={c.slug} name={c.name} colored={c.colored} />
           ))}
         </div>
       </Container>

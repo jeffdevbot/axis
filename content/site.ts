@@ -1,7 +1,5 @@
 export const site = {
-  calendlyUrl:
-    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/axis-brands-placeholder",
-  email: "hello@axisbrandsgroup.com",
+  calendlyUrl: "https://calendly.com/adam-axisbrandsgroup",
   navLinks: [
     { label: "How We Work", href: "#why-axis" },
     { label: "Results", href: "#stats" },
@@ -14,7 +12,7 @@ export const hero = {
   headlineA: "Your Amazon Partner.",
   headlineB: "Not Your Amazon Agency.",
   sub: "Axis Brands is run by operators and investors in consumer product companies. We manage Amazon and Walmart with your P&L in mind — flat monthly fee, no percentage of ad spend, no lock-in contracts.",
-  primaryCTA: "Book a 15-Minute Call",
+  primaryCTA: "Book a Call",
   secondaryCTA: "See Our Results",
 };
 
@@ -22,7 +20,7 @@ export const stats = [
   { n: "20", suffix: "+", label: "Brands Managed" },
   { n: "+40%", label: "Avg. Sales Growth" },
   { n: "−12%", label: "Avg. Ad Spend" },
-  { n: "−33%", label: "Avg. TACoS" },
+  { n: "−33%", label: "Avg. TACoS Reduction" },
 ];
 
 export const statsFootnote = "Average client results after the first 3 months.";
@@ -54,13 +52,19 @@ export const clients = {
     { slug: "hairclub", name: "HairClub" },
     { slug: "sleep-country", name: "Sleep Country" },
     { slug: "endy", name: "Endy" },
+    { slug: "world-famous", name: "World Famous", colored: true },
+    { slug: "ahimsa", name: "Ahimsa", colored: true },
+    { slug: "basari", name: "Basari", colored: true },
+    { slug: "copper-88", name: "Copper 88", colored: true },
+    { slug: "hairmax", name: "HairMax" },
+    { slug: "stone-spear", name: "Stone + Spear", colored: true },
   ],
 };
 
 export const services = {
-  eyebrow: "What We Do",
-  heading: "A focused number of brands at a time.",
-  lead: "Quality over volume — always.",
+  eyebrow: "Services",
+  heading: "What We Do",
+  lead: "We work with a focused number of brands at a time. Quality over volume — always.",
   items: [
     {
       heading: "Amazon & Walmart Management",
@@ -110,19 +114,19 @@ export const team = {
       name: "Adam Levinter",
       title: "Co-Founder, Axis Brands Group",
       photo: "/assets/team/adam-levinter.jpg",
-      bio: "Adam is an operator and investor in consumer product companies, focused on accelerating growth across Amazon, Walmart, and global markets. He is the author of The Subscription Boom — featured in The New York Times, Washington Post, Forbes, and Axios — and the host of two podcasts at the intersection of ecommerce and entrepreneurship.",
+      bio: "Adam is an operator and investor in consumer product companies, focused on accelerating growth across Amazon, Walmart, and global markets. He is the author of The Subscription Boom — featured in The New York Times, Washington Post, Forbes, and Axios — and the host of two podcasts at the intersection of ecommerce and entrepreneurship. Over the past decade he has built companies, advised Fortune 500 executives, and worked with some of the world's leading consumer brands.",
     },
     {
       name: "Anshuman Chhabra",
-      title: "Amazon Operations Lead",
+      title: "Co-Founder · Amazon Operations Lead",
       photo: "/assets/team/anshuman-chhabra.jpg",
-      bio: "A seasoned ecommerce operator with over a decade of experience scaling brands on Amazon and beyond. Anshuman began his career as a Vendor Manager at Amazon, where he developed deep expertise in marketplace dynamics, product launch strategy, and advertising optimization.",
+      bio: "A seasoned ecommerce operator with over a decade of experience scaling brands on Amazon and beyond. Anshuman began his career as a Vendor Manager at Amazon, where he developed deep expertise in marketplace dynamics, product launch strategy, and advertising optimization. His subsequent roles at Live Out There, Sport Chek, and Best Buy Canada sharpened his skills across product, marketing, and digital retail — giving him a rare combination of platform knowledge and brand-side experience.",
     },
     {
       name: "Jeffrey Talajic",
-      title: "Brand Growth Lead",
+      title: "Co-Founder · Brand Growth Lead",
       photo: "/assets/team/jeffrey-talajic.jpg",
-      bio: "Jeff is an ecommerce specialist with a proven track record of scaling consumer brands to over $10 million in annual sales. He combines deep Amazon and marketplace expertise with a hands-on, results-driven approach.",
+      bio: "Jeff is an ecommerce specialist with a proven track record of scaling consumer brands to over $10 million in annual sales. He combines deep Amazon and marketplace expertise with a hands-on, results-driven approach — drawing on prior roles in direct-to-consumer startups where he led performance marketing, channel strategy, and growth operations.",
     },
   ],
 };
@@ -136,11 +140,19 @@ export const tacos = {
 
 export const finalCTA = {
   heading: "Is Axis the Right Fit for Your Brand?",
-  sub: "Most brands we work with already know their Amazon performance could be better. We'll tell you honestly in 15 minutes whether we can move the needle — and what that would look like.",
-  cta: "Book a 15-Minute Call",
+  sub: "Most brands we work with already know their Amazon performance could be better. We'll tell you honestly on a quick call whether we can move the needle — and what that would look like.",
+  cta: "Book a Call",
 };
 
-export const footer = {
+type FooterIcon = "linkedin";
+
+type FooterLink = { label: string; href: string; icon?: FooterIcon };
+
+export const footer: {
+  tag: string;
+  columns: { label: string; links: FooterLink[] }[];
+  legal: string;
+} = {
   tag: "Your Amazon Partner. Not Your Amazon Agency.",
   columns: [
     {
@@ -154,8 +166,7 @@ export const footer = {
     {
       label: "Contact",
       links: [
-        { label: "hello@axisbrandsgroup.com", href: "mailto:hello@axisbrandsgroup.com" },
-        { label: "LinkedIn", href: "https://www.linkedin.com/company/axis-brands-group", icon: "linkedin" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/adam-j-levinter-sbase/", icon: "linkedin" },
       ],
     },
   ],
