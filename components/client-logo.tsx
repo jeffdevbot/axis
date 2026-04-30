@@ -19,11 +19,11 @@ function loadLogo(slug: string, preserveColors: boolean): string {
     ? sized
     : sized
         .replace(/<defs>[\s\S]*?<\/defs>/g, "")
-        .replace(/<(path|polygon|polyline|rect|circle|ellipse)([^>]*)>/g, (_m, tag, attrs) => {
+        .replace(/<(path|polygon|polyline|rect|circle|ellipse)([^>]*?)\/?>/g, (_m, tag, attrs) => {
           const cleaned = attrs
             .replace(/\sfill="[^"]*"/g, "")
             .replace(/\sclass="[^"]*"/g, "");
-          return `<${tag}${cleaned} fill="currentColor">`;
+          return `<${tag}${cleaned} fill="currentColor"/>`;
         });
   PROCESSED.set(cacheKey, processed);
   return processed;
