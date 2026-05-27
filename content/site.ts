@@ -54,6 +54,7 @@ export const clients = {
     { slug: "hairclub", name: "HairClub" },
     { slug: "sleep-country", name: "Sleep Country" },
     { slug: "endy", name: "Endy" },
+    { slug: "hairmax", name: "Hairmax" },
   ],
 };
 
