@@ -1,4 +1,5 @@
 import { Container } from "./container";
+import { SectionHeader } from "./section-header";
 import { services } from "@/content/site";
 
 export function Services() {
@@ -8,26 +9,11 @@ export function Services() {
       style={{ paddingBlock: "var(--section-y)" }}
     >
       <Container>
-        <header className="text-center max-w-[720px] mx-auto mb-14 md:mb-20">
-          <span className="eyebrow block mb-4">{services.eyebrow}</span>
-          <h2
-            className="mb-4"
-            style={{
-              fontSize: "var(--fs-h2)",
-              lineHeight: 1.2,
-              letterSpacing: "-0.01em",
-              fontWeight: 700,
-            }}
-          >
-            {services.heading}
-          </h2>
-          <p
-            className="text-slate-500"
-            style={{ fontSize: "var(--fs-lead)", lineHeight: 1.45 }}
-          >
-            {services.lead}
-          </p>
-        </header>
+        <SectionHeader
+          eyebrow={services.eyebrow}
+          heading={services.heading}
+          lead={services.lead}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {services.items.map((s, i) => (

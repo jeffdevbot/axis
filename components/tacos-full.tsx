@@ -1,13 +1,16 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Container } from "./container";
+import { NumberField } from "./number-field";
 import {
   calcCpcForTargetTacos,
   calcTacos,
   roundTo,
+  verdictBarClass,
   verdictExplanation,
   verdictFor,
   verdictLabel,
+  verdictTextClass,
 } from "@/lib/tacos";
 
 export function TacosFull() {
@@ -17,37 +20,20 @@ export function TacosFull() {
   const [targetTacos, setTargetTacos] = useState(15);
   const [reverseMode, setReverseMode] = useState(false);
 
-  const result = useMemo(() => {
-    if (reverseMode) {
-      const requiredCpc = calcCpcForTargetTacos({ price, conversionRate, targetTacos });
-      return {
+  const result = reverseMode
+    ? {
         mode: "reverse" as const,
         tacos: roundTo(targetTacos, 2),
-        requiredCpc: roundTo(requiredCpc, 2),
+        requiredCpc: roundTo(
+          calcCpcForTargetTacos({ price, conversionRate, targetTacos }),
+          2,
+        ),
         verdict: verdictFor(targetTacos),
-      };
-    }
-    const t = roundTo(calcTacos({ price, conversionRate, cpc }), 2);
-    return {
-      mode: "forward" as const,
-      tacos: t,
-      verdict: verdictFor(t),
-    };
-  }, [price, conversionRate, cpc, targetTacos, reverseMode]);
-
-  const verdictColor =
-    result.verdict === "excellent"
-      ? "text-[#34D399]"
-      : result.verdict === "moderate"
-        ? "text-[#FBBF24]"
-        : "text-[#F87171]";
-
-  const bar =
-    result.verdict === "excellent"
-      ? "bg-[#34D399]"
-      : result.verdict === "moderate"
-        ? "bg-[#FBBF24]"
-        : "bg-[#F87171]";
+      }
+    : (() => {
+        const t = roundTo(calcTacos({ price, conversionRate, cpc }), 2);
+        return { mode: "forward" as const, tacos: t, verdict: verdictFor(t) };
+      })();
 
   return (
     <section
@@ -136,7 +122,7 @@ export function TacosFull() {
                 {result.mode === "forward" ? "Your TACoS" : "CPC to hit target"}
               </div>
               <div
-                className={`mt-2 font-[family-name:var(--font-display)] font-extrabold tabular-nums ${verdictColor}`}
+                className={`mt-2 font-[family-name:var(--font-display)] font-extrabold tabular-nums ${verdictTextClass(result.verdict)}`}
                 style={{
                   fontSize: "clamp(3rem, 2rem + 4vw, 4.5rem)",
                   lineHeight: 1,
@@ -150,7 +136,7 @@ export function TacosFull() {
 
               <div className="mt-5 h-2 w-full rounded-full bg-white/10 overflow-hidden">
                 <div
-                  className={`h-full ${bar} transition-all duration-300`}
+                  className={`h-full ${verdictBarClass(result.verdict)} transition-all duration-300`}
                   style={{ width: `${Math.min(Math.max(result.tacos, 0), 100)}%` }}
                 />
               </div>
@@ -201,39 +187,6 @@ export function TacosFull() {
         </div>
       </Container>
     </section>
-  );
-}
-
-function NumberField({
-  label,
-  value,
-  onChange,
-  step,
-  min,
-  prefix,
-}: {
-  label: string;
-  value: number;
-  onChange: (v: number) => void;
-  step: number;
-  min?: number;
-  prefix?: string;
-}) {
-  return (
-    <div className="mb-4">
-      <label className="block text-[13px] font-semibold text-ink-800 mb-1.5">{label}</label>
-      <div className="flex items-center bg-white border border-slate-200 rounded-md px-3.5 focus-within:border-azure-500 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.18)] transition-all">
-        {prefix ? <span className="mono text-[14px] text-slate-400">{prefix}</span> : null}
-        <input
-          type="number"
-          step={step}
-          min={min}
-          value={value}
-          onChange={(e) => onChange(+e.target.value || 0)}
-          className="flex-1 bg-transparent border-0 outline-none text-ink-800 mono text-[15px] py-3 px-1.5 tabular-nums"
-        />
-      </div>
-    </div>
   );
 }
 

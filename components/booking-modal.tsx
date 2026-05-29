@@ -36,11 +36,12 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = "100%";
 
-    setTimeout(() => {
+    const focusTimer = window.setTimeout(() => {
       panelRef.current?.querySelector<HTMLElement>("button, [href]")?.focus();
     }, 50);
 
     return () => {
+      window.clearTimeout(focusTimer);
       document.removeEventListener("keydown", onKey);
       const top = document.body.style.top;
       document.body.style.position = "";
@@ -58,8 +59,7 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
       role="dialog"
       aria-modal="true"
       aria-labelledby="booking-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-ink-800/72 backdrop-blur-sm"
-      style={{ animation: "fadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1)" }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-ink-800/72 backdrop-blur-sm axis-fade-in"
       onClick={onClose}
     >
       <div
@@ -75,7 +75,7 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
           <X size={20} aria-hidden />
         </button>
         <div className="px-8 pt-8 pb-2">
-          <span className="eyebrow">15-Minute Call</span>
+          <span className="eyebrow">Book a Call</span>
           <h3
             id="booking-title"
             className="font-[family-name:var(--font-display)] text-2xl font-bold mt-2 mb-2 text-ink-800"
@@ -83,34 +83,16 @@ export function BookingModal({ open, onClose }: { open: boolean; onClose: () => 
             Pick a time that works.
           </h3>
           <p className="text-slate-500 text-[15px] leading-relaxed mb-4">
-            15 minutes, no slides — we'll share an honest read on your Amazon performance.
+            Let&apos;s discuss your opportunity on Amazon.
           </p>
         </div>
-        {site.calendlyUrl.includes("placeholder") ? (
-          <div className="px-8 pb-8">
-            <div className="rounded-md border border-slate-200 bg-surface-100 p-6 text-center">
-              <p className="text-sm text-slate-500 mb-3">
-                Calendly embed placeholder — set{" "}
-                <code className="mono text-ink-800">NEXT_PUBLIC_CALENDLY_URL</code> to wire the real booking link.
-              </p>
-              <a
-                href={`mailto:${site.email}`}
-                className="text-sm font-semibold text-azure-600 hover:text-azure-500"
-              >
-                Or email {site.email} →
-              </a>
-            </div>
-          </div>
-        ) : (
-          <iframe
-            src={site.calendlyUrl}
-            title="Book a 15-minute call"
-            className="w-full border-0"
-            style={{ height: "620px" }}
-          />
-        )}
+        <iframe
+          src={site.calendlyUrl}
+          title="Book a call"
+          className="w-full border-0"
+          style={{ height: "620px" }}
+        />
       </div>
-      <style>{`@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
     </div>
   );
 }

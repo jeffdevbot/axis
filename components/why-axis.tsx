@@ -1,4 +1,5 @@
 import { Container } from "./container";
+import { SectionHeader } from "./section-header";
 import { difference } from "@/content/site";
 
 export function WhyAxis() {
@@ -9,26 +10,11 @@ export function WhyAxis() {
       style={{ paddingBlock: "var(--section-y)" }}
     >
       <Container>
-        <header className="text-center max-w-[720px] mx-auto mb-14 md:mb-20">
-          <span className="eyebrow block mb-4">{difference.eyebrow}</span>
-          <h2
-            className="mb-4"
-            style={{
-              fontSize: "var(--fs-h2)",
-              lineHeight: 1.2,
-              letterSpacing: "-0.01em",
-              fontWeight: 700,
-            }}
-          >
-            {difference.heading}
-          </h2>
-          <p
-            className="text-slate-500 mx-auto"
-            style={{ fontSize: "var(--fs-lead)", lineHeight: 1.45 }}
-          >
-            {difference.lead}
-          </p>
-        </header>
+        <SectionHeader
+          eyebrow={difference.eyebrow}
+          heading={difference.heading}
+          lead={difference.lead}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 rounded-[var(--radius-xl)] border border-slate-100 overflow-hidden bg-white">
           {difference.pillars.map((p, i) => (
