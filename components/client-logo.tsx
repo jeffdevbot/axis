@@ -39,9 +39,10 @@ export function ClientLogo({
   colored?: boolean;
 }) {
   const svg = loadLogo(slug, !!colored);
+  const heightClass = slug === "hairmax" ? "h-12" : "h-16";
   const className = colored
-    ? "flex items-center justify-center h-16 grayscale opacity-70 transition duration-200 hover:grayscale-0 hover:opacity-100"
-    : "flex items-center justify-center h-16 text-slate-400 transition-colors duration-200 hover:text-ink-800";
+    ? `flex items-center justify-center ${heightClass} grayscale opacity-70 transition duration-200 hover:grayscale-0 hover:opacity-100`
+    : `flex items-center justify-center ${heightClass} text-slate-400 transition-colors duration-200 hover:text-ink-800`;
   return (
     <div
       aria-label={name}

@@ -11,7 +11,7 @@ export function Clients() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 md:gap-12 items-center">
           {clients.logos.map((c) => (
-            <ClientLogo key={c.slug} slug={c.slug} name={c.name} colored={c.colored} />
+            <ClientLogo key={c.slug} slug={c.slug} name={c.name} />
           ))}
         </div>
       </Container>

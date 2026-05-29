@@ -52,12 +52,7 @@ export const clients = {
     { slug: "hairclub", name: "HairClub" },
     { slug: "sleep-country", name: "Sleep Country" },
     { slug: "endy", name: "Endy" },
-    { slug: "world-famous", name: "World Famous", colored: true },
-    { slug: "ahimsa", name: "Ahimsa", colored: true },
-    { slug: "basari", name: "Basari", colored: true },
-    { slug: "copper-88", name: "Copper 88", colored: true },
-    { slug: "hairmax", name: "HairMax" },
-    { slug: "stone-spear", name: "Stone + Spear", colored: true },
+    { slug: "hairmax", name: "Hairmax" },
   ],
 };
 
