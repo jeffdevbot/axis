@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { BookingProvider } from "@/components/booking-provider";
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
@@ -12,6 +13,10 @@ import { FinalCTA } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/reveal";
 import { SITE_URL } from "@/lib/site-url";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
