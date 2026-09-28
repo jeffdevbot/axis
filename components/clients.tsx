@@ -9,12 +9,23 @@ export function Clients() {
         <div className="text-center mono text-[14px] uppercase tracking-[0.08em] text-slate-400 mb-8">
           {clients.label}
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 items-center">
-          {clients.logos.map((c) => (
-            <ClientLogo key={c.slug} slug={c.slug} name={c.name} />
+      </Container>
+      <div className="logo-marquee">
+        <div className="logo-marquee__track">
+          {/* Second copy makes the loop seamless; hidden from screen readers */}
+          {[false, true].map((duplicate) => (
+            <div
+              key={String(duplicate)}
+              className="logo-marquee__group"
+              aria-hidden={duplicate || undefined}
+            >
+              {clients.logos.map((c) => (
+                <ClientLogo key={c.slug} slug={c.slug} name={c.name} width={c.width} />
+              ))}
+            </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

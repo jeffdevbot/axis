@@ -3,8 +3,8 @@ import path from "node:path";
 
 const PROCESSED = new Map<string, string>();
 
-function loadLogo(slug: string, preserveColors: boolean): string {
-  const cacheKey = `${slug}:${preserveColors ? "color" : "mono"}`;
+function loadLogo(slug: string, preserveColors: boolean, width: number): string {
+  const cacheKey = `${slug}:${preserveColors ? "color" : "mono"}:${width}`;
   const cached = PROCESSED.get(cacheKey);
   if (cached) return cached;
   const raw = fs.readFileSync(
@@ -13,7 +13,7 @@ function loadLogo(slug: string, preserveColors: boolean): string {
   );
   const sized = raw.replace(
     /<svg([^>]*)>/,
-    '<svg$1 style="max-height:47px;max-width:100%;width:auto;height:auto">',
+    `<svg$1 style="width:${width}px;max-width:100%;height:auto;display:block">`,
   );
   const processed = preserveColors
     ? sized
@@ -32,19 +32,21 @@ function loadLogo(slug: string, preserveColors: boolean): string {
 export function ClientLogo({
   slug,
   name,
+  width,
   colored,
 }: {
   slug: string;
   name: string;
+  width: number;
   colored?: boolean;
 }) {
-  const svg = loadLogo(slug, !!colored);
-  const heightClass = slug === "hairmax" ? "h-12" : "h-16";
+  const svg = loadLogo(slug, !!colored, width);
   const className = colored
-    ? `flex items-center justify-center ${heightClass} grayscale opacity-70 transition duration-200 hover:grayscale-0 hover:opacity-100`
-    : `flex items-center justify-center ${heightClass} text-slate-400 transition-colors duration-200 hover:text-ink-800`;
+    ? "flex shrink-0 items-center justify-center h-16 grayscale opacity-70 transition duration-200 hover:grayscale-0 hover:opacity-100"
+    : "flex shrink-0 items-center justify-center h-16 text-slate-400 transition-colors duration-200 hover:text-ink-800";
   return (
     <div
+      role="img"
       aria-label={name}
       title={name}
       className={className}

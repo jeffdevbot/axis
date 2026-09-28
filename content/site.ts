@@ -47,12 +47,16 @@ export const difference = {
 
 export const clients = {
   label: "Trusted by brands including",
+  // width (px) is tuned per logo so they read at a similar visual weight
   logos: [
-    { slug: "whoosh", name: "Whoosh!" },
-    { slug: "hairclub", name: "HairClub" },
-    { slug: "sleep-country", name: "Sleep Country" },
-    { slug: "endy", name: "Endy" },
-    { slug: "hairmax", name: "Hairmax" },
+    { slug: "whoosh", name: "Whoosh!", width: 140 },
+    { slug: "oats-overnight", name: "Oats Overnight", width: 52 },
+    { slug: "hairclub", name: "HairClub", width: 148 },
+    { slug: "stone-spear", name: "Stone & Spear", width: 190 },
+    { slug: "sleep-country", name: "Sleep Country", width: 140 },
+    { slug: "ahimsa", name: "Ahimsa", width: 150 },
+    { slug: "endy", name: "Endy", width: 120 },
+    { slug: "hairmax", name: "Hairmax", width: 132 },
   ],
 };
 
